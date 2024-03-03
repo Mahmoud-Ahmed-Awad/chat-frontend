@@ -25,7 +25,7 @@ function Register() {
     ) {
       try {
         const login = await axios.post(
-          `${process.env.API_URL}users/register`,
+          `${window.env.API_URL}users/register`,
           user
         );
         if (login.data.status === "SUCCESS") {

@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
-import { config } from "dotenv";
+// import { config } from "dotenv";
 
 import Router from "./utils/Router";
 import refreshToken from "./utils/refreshToken";
 
-config();
+// config();
 
 refreshToken();
 

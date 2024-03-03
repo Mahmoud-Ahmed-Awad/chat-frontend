@@ -40,7 +40,7 @@ function EditProfile() {
       }
     });
     try {
-      await axios.patch(`${process.env.API_URL}/users/update`, userUpdated, {
+      await axios.patch(`${window.env.API_URL}/users/update`, userUpdated, {
         headers: {
           Authorization: `Bearer ${window.localStorage.getItem("token")}`,
           "Content-Type": `multipart/form-data`,
@@ -83,7 +83,7 @@ function EditProfile() {
       <div className="container mt-3">
         <div className="user-data">
           <img
-            src={`${process.env.API_URL}/avatars/${user.avatar}`}
+            src={`${window.env.API_URL}/avatars/${user.avatar}`}
             alt={`${user.firstName} ${user.lastName} Avatar`}
             className="mb-3"
             loading="lazy"

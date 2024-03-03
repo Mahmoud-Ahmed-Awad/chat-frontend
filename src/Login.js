@@ -18,7 +18,7 @@ function Login() {
     if (user.email && user.password) {
       try {
         const login = await axios.post(
-          `${process.env.API_URL}/users/login`,
+          `${window.env.API_URL}/users/login`,
           user
         );
         if (login.data.status === "SUCCESS") {

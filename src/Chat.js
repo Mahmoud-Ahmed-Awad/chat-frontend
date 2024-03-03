@@ -14,7 +14,7 @@ function Chat() {
   mustLogin(true);
   const [user, setUser] = useState({});
   const [otherUsers, setOtherUsers] = useState([]);
-  const socket = io(process.env.API_URL);
+  const socket = io(window.env.API_URL);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Chat() {
       // })();
       // (async () => {
       const otherUsersRequest = await axios.get(
-        `${process.env.API_URL}/users/otherUsers`,
+        `${window.env.API_URL}/users/otherUsers`,
         {
           headers: {
             Authorization: `Beare ${window.localStorage.getItem("token")}`,
@@ -36,7 +36,7 @@ function Chat() {
       setOtherUsers(otherUsersRequest.data.data.users);
       socket.emit("token", userData.data.data.user.token);
       const oldMessages = await axios.get(
-        `${process.env.API_URL}/oldMesssages/${userData.data.data.user._id}/${toUser}`
+        `${window.env.API_URL}/oldMesssages/${userData.data.data.user._id}/${toUser}`
       );
       setMessages(oldMessages.data.data.messages);
       messagesBox.current.scrollTo(0, messagesBox.current.scrollHeight);
@@ -99,7 +99,7 @@ function Chat() {
                         >
                           <ListGroup.Item>
                             <img
-                              src={`${process.env.API_URL}/avatars/${user.avatar}`}
+                              src={`${window.env.API_URL}/avatars/${user.avatar}`}
                               alt={`${user.firstName} ${user.lastName} Avatar`}
                               style={{
                                 width: "40px",
@@ -142,7 +142,7 @@ function Chat() {
                   {toUserData && (
                     <>
                       <img
-                        src={`${process.env.API_URL}/avatars/${toUserData.avatar}`}
+                        src={`${window.env.API_URL}/avatars/${toUserData.avatar}`}
                         alt={`${toUserData.firstName} ${toUserData.lastName} Avatar`}
                         style={{
                           width: "40px",

@@ -11,7 +11,6 @@ function NavBar() {
   useEffect(() => {
     (async () => {
       const userData = await getUserData();
-      console.log(userData);
       if (userData) {
         setUser(userData.data.data.user);
       }
@@ -46,7 +45,7 @@ function NavBar() {
               <NavDropdown
                 title={
                   <img
-                    src={`${process.env.API_URL}/avatars/${user.avatar}`}
+                    src={`${window.env.API_URL}/avatars/${user.avatar}`}
                     alt={`${user.firstName} ${user.lastName} Avatar`}
                     style={{
                       width: "40px",
